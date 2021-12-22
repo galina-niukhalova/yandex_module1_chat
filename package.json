@@ -10,6 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "sass": "^1.45.1"
+  },
+  "dependencies": {
+    "@inventory/parcel-plugin-handlebars": "^1.0.0",
+    "handlebars": "^4.7.7"
   }
 }
