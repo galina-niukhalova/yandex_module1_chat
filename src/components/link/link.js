@@ -1,7 +1,7 @@
-import linkTemplate from './link.tmpl.hbs';
+// import linkTemplate from './link.tmpl.hbs';
 
-function renderLink() {
-  return linkTemplate();
-}
+// function renderLink() {
+//   return linkTemplate();
+// }
 
-export default renderLink;
+// export default renderLink;

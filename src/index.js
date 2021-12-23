@@ -1,42 +1,48 @@
 import './base.scss';
-import './components';
-import renderLoginPage from './pages/login';
-import renderSignupPage from './pages/signup';
-import renderChatsListPage from './pages/chatsList';
-import renderChatPage from './pages/chat';
-import renderUserProfilePage from './pages/userProfile';
-import renderNotFoundPage from './pages/notFound';
+// import './components';
+// import renderLoginPage from './pages/login';
+// import renderSignupPage from './pages/signup';
+// import renderChatsListPage from './pages/chatsList';
+// import renderChatPage from './pages/chat';
+// import renderUserProfilePage from './pages/userProfile';
+// import renderNotFoundPage from './pages/notFound';
 import renderErrorPage from './pages/error';
 
-let html;
-switch (window.location.pathname) {
-  case '/login':
-    html = renderLoginPage();
-    break;
+import Handlebars from 'handlebars';
 
-  case '/signup':
-    html = renderSignupPage();
-    break;
+// Handlebars.registerPartial('link', `<div>Im link</div>`)
+// Handlebars.partials = Handlebars.templates;
 
-  case '/chats':
-    html = renderChatsListPage();
-    break;
+console.log('templates', Handlebars)
+// let html;
+// switch (window.location.pathname) {
+//   case '/login':
+//     html = renderLoginPage();
+//     break;
 
-  case '/chat':
-    html = renderChatPage();
-    break;
+//   case '/signup':
+//     html = renderSignupPage();
+//     break;
 
-  case '/profile':
-    html = renderUserProfilePage();
-    break;
+//   case '/chats':
+//     html = renderChatsListPage();
+//     break;
 
-  case '/error':
-    html = renderErrorPage();
-    break;
+//   case '/chat':
+//     html = renderChatPage();
+//     break;
 
-  default: {
-    html = renderNotFoundPage();
-  }
-}
+//   case '/profile':
+//     html = renderUserProfilePage();
+//     break;
 
-document.body.innerHTML = html;
+//   case '/error':
+//     html = renderErrorPage()()
+//     break;
+
+//   default: {
+//     html = renderNotFoundPage();
+//   }
+// }
+
+document.body.innerHTML = renderErrorPage();

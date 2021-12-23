@@ -1,4 +1,4 @@
-import notFoundTemplate from './notFound.tmpl.hbs';
+import notFoundTemplate from './notFound.hbs';
 import './notFound.style.scss';
 
 function renderNotFound() {
