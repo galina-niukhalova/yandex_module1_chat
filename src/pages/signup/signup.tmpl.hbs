@@ -1,3 +1,51 @@
-<div>
-  Signup
-</div>
+<form id="signup" class="signup-form">
+  <div class="signup-form_container">
+    <h3 class="signup-form_title">Зарегистрироваться</h3>
+    {{ input 
+      type="email" 
+      name="email" 
+      className="signup-form_input signup-form_email-input" 
+      label="Почта"
+    }}
+    {{ input 
+      type="text" 
+      name="login" 
+      className="signup-form_input signup-form_login-input" 
+      label="Логин"
+    }}
+    {{ input 
+      type="text" 
+      name="first_name" 
+      className="signup-form_input signup-form_first-name-input" 
+      label="Имя"
+    }}
+    {{ input 
+      type="text" 
+      name="second_name" 
+      className="signup-form_input signup-form_second-name-input" 
+      label="Фамилия"
+    }}
+    {{ input 
+      type="tel" 
+      name="phone" 
+      className="signup-form_input signup-form_phone-input" 
+      label="Телефон"
+    }}
+    {{ input 
+      type="password" 
+      name="password" 
+      className="signup-form_input signup-form_password-input" 
+      label="Пароль"
+    }}
+    {{ input 
+      type="password" 
+      name="repeat-password" 
+      className="signup-form_input signup-form_repeat-password-input" 
+      label="Пароль (еще раз)"
+    }}
+  </div>
+  <div class="login-form_container">
+    {{ button title="Зарегистрироваться" className="signup-form_submit-button" type="submit" }}
+    {{ link url="/login" title="Войти" }}
+  </div>
+</form> 
