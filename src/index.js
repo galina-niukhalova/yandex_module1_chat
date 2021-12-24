@@ -1,48 +1,42 @@
 import './base.scss';
-// import './components';
-// import renderLoginPage from './pages/login';
-// import renderSignupPage from './pages/signup';
-// import renderChatsListPage from './pages/chatsList';
-// import renderChatPage from './pages/chat';
-// import renderUserProfilePage from './pages/userProfile';
-// import renderNotFoundPage from './pages/notFound';
+import './components/link';
+import renderLoginPage from './pages/login';
+import renderSignupPage from './pages/signup';
+import renderChatsListPage from './pages/chatsList';
+import renderChatPage from './pages/chat';
+import renderUserProfilePage from './pages/userProfile';
+import renderNotFoundPage from './pages/notFound';
 import renderErrorPage from './pages/error';
 
-import Handlebars from 'handlebars';
+let html;
+switch (window.location.pathname) {
+  case '/login':
+    html = renderLoginPage();
+    break;
 
-// Handlebars.registerPartial('link', `<div>Im link</div>`)
-// Handlebars.partials = Handlebars.templates;
+  case '/signup':
+    html = renderSignupPage();
+    break;
 
-console.log('templates', Handlebars)
-// let html;
-// switch (window.location.pathname) {
-//   case '/login':
-//     html = renderLoginPage();
-//     break;
+  case '/chats':
+    html = renderChatsListPage();
+    break;
 
-//   case '/signup':
-//     html = renderSignupPage();
-//     break;
+  case '/chat':
+    html = renderChatPage();
+    break;
 
-//   case '/chats':
-//     html = renderChatsListPage();
-//     break;
+  case '/profile':
+    html = renderUserProfilePage();
+    break;
 
-//   case '/chat':
-//     html = renderChatPage();
-//     break;
+  case '/error':
+    html = renderErrorPage()
+    break;
 
-//   case '/profile':
-//     html = renderUserProfilePage();
-//     break;
+  default: {
+    html = renderNotFoundPage();
+  }
+}
 
-//   case '/error':
-//     html = renderErrorPage()()
-//     break;
-
-//   default: {
-//     html = renderNotFoundPage();
-//   }
-// }
-
-document.body.innerHTML = renderErrorPage();
+document.body.innerHTML = html;
