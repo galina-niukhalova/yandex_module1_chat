@@ -1,0 +1,34 @@
+@use '../../style/colors.scss';
+
+.floating-input-container {
+	position: relative;
+  width: 100%;
+
+	.floating-label {
+		font-size: 13px;
+		color: colors.$color-grey;
+		position: absolute;
+		pointer-events: none;
+		top: 9px;
+		left: 4px;
+		transition: all 0.1s ease;
+	}
+
+	input:focus ~ .floating-label,
+	input:not(:focus):valid ~ .floating-label {
+		top: -15px;
+		bottom: 0px;
+		left: 4px;
+		font-size: 9px;
+		font-weight: 500;
+    color: colors.$color-grey;
+	}
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid colors.$color-blue;
+  padding: 8px 4px;
+  margin-bottom: 32px;
+  outline: none;
+}

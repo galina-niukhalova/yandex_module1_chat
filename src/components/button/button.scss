@@ -1,0 +1,13 @@
+@use '../../style/colors.scss';
+
+button {
+  padding: 16px 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: colors.$color-blue;
+  color: colors.$color-white;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}

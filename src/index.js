@@ -1,5 +1,5 @@
 import './base.scss';
-import './components/link';
+import './components';
 import renderLoginPage from './pages/login';
 import renderSignupPage from './pages/signup';
 import renderChatsListPage from './pages/chatsList';
