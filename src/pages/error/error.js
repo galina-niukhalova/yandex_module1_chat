@@ -2,7 +2,7 @@ import errorTemplate from './error.tmpl.hbs';
 import './error.style.scss';
 
 function renderError() {
-  return errorTemplate();
+  document.body.innerHTML = errorTemplate();
 }
 
 export default renderError;

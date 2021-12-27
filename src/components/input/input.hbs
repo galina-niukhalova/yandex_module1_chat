@@ -1,4 +1,7 @@
-<div class="floating-input-container">
-  <input class={{className}} type={{type}} name={{name}} required>
-  <span class="floating-label">{{label}}</span>
+<div class="input-container {{containerMargin}}">
+  <div class="floating-input-container">
+    <input id={{id}} class="input {{className}}" type={{type}} name={{name}} required placeholder="placeholder">
+    <span class="floating-label">{{label}}</span>
+  </div>
+  <span id={{errorId}} class="input_error-message hidden">Error</span>
 </div>

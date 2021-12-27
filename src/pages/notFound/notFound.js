@@ -2,7 +2,7 @@ import notFoundTemplate from './notFound.hbs';
 import './notFound.style.scss';
 
 function renderNotFound() {
-  return notFoundTemplate();
+  document.body.innerHTML = notFoundTemplate();
 }
 
 export default renderNotFound;

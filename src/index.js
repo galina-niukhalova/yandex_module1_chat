@@ -8,35 +8,32 @@ import renderUserProfilePage from './pages/userProfile';
 import renderNotFoundPage from './pages/notFound';
 import renderErrorPage from './pages/error';
 
-let html;
 switch (window.location.pathname) {
   case '/login':
-    html = renderLoginPage();
+    renderLoginPage();
     break;
 
   case '/signup':
-    html = renderSignupPage();
+    renderSignupPage();
     break;
 
   case '/chats':
-    html = renderChatsListPage();
+    renderChatsListPage();
     break;
 
   case '/chat':
-    html = renderChatPage();
+    renderChatPage();
     break;
 
   case '/profile':
-    html = renderUserProfilePage();
+    renderUserProfilePage();
     break;
 
   case '/error':
-    html = renderErrorPage()
+    renderErrorPage()
     break;
 
   default: {
-    html = renderNotFoundPage();
+    renderNotFoundPage();
   }
 }
-
-document.body.innerHTML = html;
