@@ -13,12 +13,15 @@ class Form {
   }
 
   /** EVENTS */
-  listenFormSubmission() {
+  listenFormSubmission(onFormSubmit) {
     document.getElementById(this.id).addEventListener('submit', (event) => {
       event.preventDefault();
       this.formWasSubmitted = true;
 
-      this.validateForm();
+      if (this.validateForm()) {
+        console.log('Form was successfully submitted');
+        onFormSubmit();
+      }
     })
   }
 
@@ -59,10 +62,7 @@ class Form {
       }
     })
 
-    if (!validationFail) {
-      // signup request
-      console.log('Form was successfully submitted');
-    }
+    return !validationFail;
   }
 
   isInputValid(inputName) {

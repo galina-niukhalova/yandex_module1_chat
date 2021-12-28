@@ -20,11 +20,18 @@ const ERRORS = {
   }
 }
 
+/** HELPERS */
+function handleFormSubmit() {
+  window.location.href = '/chats';
+}
+
+
+/** RENDER */
 function renderLoginPage() {
   document.body.innerHTML = loginTemplate();
 
   const loginForm = new Form(FORM_ID, FORM_NAME, FORM_INPUTS, ERRORS);
-  loginForm.listenFormSubmission();
+  loginForm.listenFormSubmission(handleFormSubmit);
   loginForm.listenInputsChange();
 }
 
