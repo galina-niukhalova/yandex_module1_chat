@@ -1,17 +1,21 @@
-<form id="login" class="login-form">
+<form id="login" class="login-form" novalidate>
   <div class="login-form_container">
     <h3 class="login-form_title">Вход</h3>
     {{ input 
-      type="text" 
-      name="login" 
-      className="login-form_input login-form_login-input" 
-      label="Логин"
+        id="login-form_login-input"
+        className="login-form_input" 
+        type="text" 
+        name="login" 
+        label="Логин"
+        errorId="login-form_login-error" 
     }}
     {{ input 
-      type="password" 
-      name="password" 
-      className="login-form_input login-form_password-input" 
-      label="Пароль"
+        id="login-form_password-input"
+        className="login-form_input" 
+        type="password" 
+        name="password" 
+        label="Пароль"
+        errorId="login-form_password-error" 
     }}
   </div>
   <div class="login-form_container">
