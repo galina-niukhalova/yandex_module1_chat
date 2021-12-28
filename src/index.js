@@ -30,7 +30,7 @@ switch (window.location.pathname) {
     break;
 
   case '/error':
-    renderErrorPage()
+    renderErrorPage();
     break;
 
   default: {

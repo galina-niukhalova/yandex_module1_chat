@@ -22,7 +22,7 @@ class Form {
         console.log('Form was successfully submitted');
         onFormSubmit();
       }
-    })
+    });
   }
 
   listenInputsChange() {
@@ -30,7 +30,7 @@ class Form {
     for (let inputElement of inputs) {
       inputElement.addEventListener('input', () => {
         this.formWasSubmitted && this.validateInput(inputElement.name);
-      })
+      });
     }
   }
 
@@ -38,13 +38,13 @@ class Form {
   showErrorMessageFor(field, show = true) {
     const inputElement = getInputElement(this.name, field);
     const errorMessageElement = getErrorMessageElement(this.name, field);
-    if (!errorMessageElement) return
+    if (!errorMessageElement) return;
 
     if (show) {
       errorMessageElement.classList.remove('hidden');
       errorMessageElement.innerHTML = !inputElement.value
         ? this.errors[field].emptyField
-        : this.errors[field].general
+        : this.errors[field].general;
       inputElement.classList.add('input_invalid');
     } else {
       errorMessageElement.classList.add('hidden');
@@ -60,7 +60,7 @@ class Form {
         this.showErrorMessageFor(inputName, true);
         validationFail = true;
       }
-    })
+    });
 
     return !validationFail;
   }
@@ -88,7 +88,7 @@ class Form {
         !this.isInputValid(dependentField)
           ? this.showErrorMessageFor(dependentField, true)
           : this.showErrorMessageFor(dependentField, false);
-      })
+      });
     }
   }
 }

@@ -8,7 +8,7 @@ const FORM_ID = 'login';
 const FORM_INPUTS = [
   'login',
   'password'
-]
+];
 
 const ERRORS = {
   login: {
@@ -18,7 +18,7 @@ const ERRORS = {
   password: {
     emptyField: 'Задайте пожалуйста пароль',
   }
-}
+};
 
 /** HELPERS */
 function handleFormSubmit() {

@@ -9,4 +9,4 @@ function getErrorMessageElement(formName, inputName) {
 export {
   getInputElement,
   getErrorMessageElement
-}
+};

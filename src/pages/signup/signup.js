@@ -14,7 +14,7 @@ const FORM_INPUTS = [
   'phone',
   'password',
   'repeat-password'
-]
+];
 
 const ERRORS = {
   email: {
@@ -45,7 +45,7 @@ const ERRORS = {
     dependentFields: ['password'],
     customValidator: isPasswordValid,
   }
-}
+};
 
 /** HELPERS */
 function isPasswordValid() {
