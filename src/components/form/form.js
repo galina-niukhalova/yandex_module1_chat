@@ -1,7 +1,7 @@
 import {
   getInputElement,
   getErrorMessageElement,
-} from 'helpers/dom';
+} from 'utils/dom';
 class Form {
   formWasSubmitted = false;
 

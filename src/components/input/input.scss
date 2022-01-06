@@ -1,14 +1,22 @@
-@use '../../style/colors.scss';
+@use '~style/colors.scss';
 
 .input-container {
 	width: 100%;
 
 	&.mb16 {
 		margin-bottom: 16px;
+
+		&:last-child {
+			margin: 0;
+		}
 	}
 
 	&.mb32 {
 		margin-bottom: 32px;
+
+		&:last-child {
+			margin: 0;
+		}
 	}
 }
 
