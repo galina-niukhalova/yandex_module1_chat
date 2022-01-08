@@ -1,3 +1,10 @@
-<div>
-  <input type="file" alt="Выберите аватарку" class="user-profile_avatar">
+<div class="profile">
+  <label for="profile__avatar-file-upload" class="profile__avatar-label"></label>
+  <input type="file" alt="Выберите аватарку" id="profile__avatar-file-upload" class="profile__avatar-file-upload" accept="image/*">
+  {{#if avatar.imageUrl }}
+    <img class="profile__avatar-image" src={{avatar.imageUrl}} />
+  {{else}}
+    <img class="profile__avatar-image profile__avatar-image_hidden" src="" />
+  {{/if}}
+  <h3 class="profile__user-name">{{userName}}</h3>
 </div>

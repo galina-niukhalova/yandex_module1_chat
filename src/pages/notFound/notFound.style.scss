@@ -1,20 +1,18 @@
-@use "/src/style/colors";
-
-.error {
+.not-found-page {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  &_header {
+  &__header {
     font-weight: 500;
     font-size: 40px;
     line-height: 40px;
     margin: 0 0 24px 0;
   }
 
-  &_description {
+  &__description {
     font-weight: 500;
     font-size: 20px;
     line-height: 20px;
