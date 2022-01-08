@@ -1,9 +1,9 @@
-@use 'style/colors.scss';
+@import '~style/colors.scss';
 
 body {
   padding: 0;
   margin: 0;
-  color: colors.$color-black;
+  color: $color-black;
   font-family: Inter;
   box-sizing: border-box;
   font-style: normal;
@@ -13,8 +13,4 @@ body * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.hidden {
-  visibility: hidden;
 }

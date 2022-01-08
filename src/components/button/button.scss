@@ -1,11 +1,11 @@
-@use '../../style/colors.scss';
+@import '~style/colors.scss';
 
-button {
+.button {
   padding: 16px 8px;
   border-radius: 8px;
   border: none;
-  background-color: colors.$color-blue;
-  color: colors.$color-white;
+  background-color: $color-blue;
+  color: $color-white;
   font-size: 13px;
   line-height: 13px;
   font-weight: 500;

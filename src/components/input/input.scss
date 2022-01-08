@@ -1,32 +1,25 @@
-@use '~style/colors.scss';
-
-.input-container {
-	width: 100%;
-
-	&.mb16 {
-		margin-bottom: 16px;
-
-		&:last-child {
-			margin: 0;
-		}
-	}
-
-	&.mb32 {
-		margin-bottom: 32px;
-
-		&:last-child {
-			margin: 0;
-		}
-	}
-}
+@import '~style/colors.scss';
 
 .floating-input-container {
 	position: relative;
   width: 100%;
+}
 
-	.floating-label {
+.input {
+	border: none;
+	border-bottom: 1px solid $color-blue;
+	padding: 8px 4px;
+	outline: none;
+	width: 100%;
+
+	&_invalid {
+		color: $color-red;
+		border-bottom: 1px solid $color-red;
+	}
+
+	&__label {
 		font-size: 13px;
-		color: colors.$color-grey;
+		color: $color-grey;
 		position: absolute;
 		pointer-events: none;
 		top: 9px;
@@ -34,36 +27,27 @@
 		transition: all 0.1s ease;
 	}
 
-	.input:not(:placeholder-shown) ~ .floating-label{
-		top: -10px;
-		bottom: 0px;
-		left: 4px;
-		font-size: 9px;
-		font-weight: 500;
-    color: colors.$color-grey;
-	}
+	&__error-message {
+		color: $color-red;
+		font-size: 8px;
+		line-height: 8px;
+		padding-left: 4px;
 
-	.input {
-		border: none;
-		border-bottom: 1px solid colors.$color-blue;
-		padding: 8px 4px;
-		outline: none;
-		width: 100%;
-
-		&_invalid {
-			color: colors.$color-red;
-			border-bottom: 1px solid colors.$color-red;
+		&_hidden {
+			visibility: hidden;
 		}
 	}
 
-	.input::placeholder {
-		color: colors.$color-white;
+	&::placeholder {
+		color: $color-white;
 	}
 }
 
-.input_error-message {
-	color: colors.$color-red;
-	font-size: 8px;
-	line-height: 8px;
-	padding-left: 4px;
+.input:not(:placeholder-shown) ~ .input__label {
+	top: -10px;
+	bottom: 0px;
+	left: 4px;
+	font-size: 9px;
+	font-weight: 500;
+	color: $color-grey;
 }

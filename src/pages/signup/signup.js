@@ -2,10 +2,10 @@ import signupTemplate from './signup.tmpl.hbs';
 import './signup.style.scss';
 import Form from 'components/form';
 import {
-  FORM_NAME,
-  FORM_ID,
-  FORM_INPUTS,
-  ERRORS
+  FORM,
+  INPUTS,
+  SUBMIT_BTN,
+  LOGIN_LINK
 } from './const';
 
 function handleFormSubmit() {
@@ -14,9 +14,23 @@ function handleFormSubmit() {
 
 /** RENDER */
 function renderSignupPage() {
-  document.body.innerHTML = signupTemplate();
+  document.body.innerHTML = signupTemplate(
+    {
+      data: {
+        formID: FORM.id,
+        title: FORM.title,
+        formClassName: 'signup-form',
+        inputs:
+          Object.keys(INPUTS).map(key =>
+            ({ name: key, ...INPUTS[key] })
+          ),
+        submitBtn: SUBMIT_BTN,
+        formLink: LOGIN_LINK,
+      }
+    }
+  );
 
-  const signupForm = new Form(FORM_ID, FORM_NAME, FORM_INPUTS, ERRORS);
+  const signupForm = new Form(FORM.id, FORM.name, INPUTS);
   signupForm.listenFormSubmission(handleFormSubmit);
   signupForm.listenInputsChange();
 }

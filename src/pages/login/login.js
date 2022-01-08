@@ -2,10 +2,10 @@ import loginTemplate from './login.tmpl.hbs';
 import './login.style.scss';
 import Form from 'components/form';
 import {
-  FORM_NAME,
-  FORM_ID,
-  FORM_INPUTS,
-  ERRORS
+  FORM,
+  INPUTS,
+  NO_ACCOUNT_LINK,
+  SUBMIT_BTN
 } from './const';
 
 function handleFormSubmit() {
@@ -13,11 +13,29 @@ function handleFormSubmit() {
 }
 
 function renderLoginPage() {
-  document.body.innerHTML = loginTemplate();
+  document.body.innerHTML = loginTemplate(
+    {
+      data: {
+        formID: FORM.id,
+        title: FORM.title,
+        formClassName: 'login-form',
+        inputs:
+          Object.keys(INPUTS).map(key =>
+            ({ name: key, ...INPUTS[key] })
+          ),
+        submitBtn: SUBMIT_BTN,
+        formLink: NO_ACCOUNT_LINK,
+      }
+    });
 
-  const loginForm = new Form(FORM_ID, FORM_NAME, FORM_INPUTS, ERRORS);
+  const loginForm = new Form(
+    FORM.id,
+    FORM.name,
+    INPUTS,
+  );
   loginForm.listenFormSubmission(handleFormSubmit);
   loginForm.listenInputsChange();
 }
+
 
 export default renderLoginPage;

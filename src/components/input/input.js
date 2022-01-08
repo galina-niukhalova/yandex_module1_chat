@@ -6,12 +6,11 @@ Handlebars.registerHelper("input", function (options) {
   const { hash } = options || {};
   if (!hash) return;
 
-  const { id, className, type, name, label, errorId } = hash;
+  const { className, type, name, label, errorId, isFormInput } = hash;
 
   const html = inputTemplate({
-    containerMargin: Handlebars.escapeExpression(errorId ? 'mb16' : 'mb32'),
-    id: Handlebars.escapeExpression(id),
     className: Handlebars.escapeExpression(className),
+    containerClassName: isFormInput && "form__input-container",
     type: Handlebars.escapeExpression(type),
     name: Handlebars.escapeExpression(name),
     label: Handlebars.escapeExpression(label),

@@ -1,15 +1,30 @@
 import {
-  getInputElement,
   getErrorMessageElement,
 } from 'utils/dom';
+import './form.scss';
+import { CLASS_NAMES } from './const';
+import formTemplate from './form.hbs';
+import Handlebars from "handlebars/dist/handlebars.runtime";
+
+Handlebars.registerHelper("form", function (options) {
+  const { hash } = options || {};
+  if (!hash) return;
+
+  const { data } = hash;
+
+  const formHTML = formTemplate({
+    ...data,
+  });
+
+  return new Handlebars.SafeString(formHTML);
+});
 class Form {
   formWasSubmitted = false;
 
-  constructor(id, name, inputs, errors) {
+  constructor(id, name, inputs) {
     this.id = id;
     this.name = name;
     this.inputs = inputs;
-    this.errors = errors;
   }
 
   /** EVENTS */
@@ -26,36 +41,33 @@ class Form {
   }
 
   listenInputsChange() {
-    const inputs = document.getElementsByClassName(`${this.name}_input`);
-    for (let inputElement of inputs) {
-      inputElement.addEventListener('input', () => {
-        this.formWasSubmitted && this.validateInput(inputElement.name);
-      });
-    }
+    document.getElementById(this.id).addEventListener('input', ({ target }) => {
+      this.formWasSubmitted && this.validateInput(target.name);
+    });
   }
 
   /** HELPERS */
   showErrorMessageFor(field, show = true) {
-    const inputElement = getInputElement(this.name, field);
+    const inputElement = document.getElementsByName(field)[0];
     const errorMessageElement = getErrorMessageElement(this.name, field);
     if (!errorMessageElement) return;
 
     if (show) {
-      errorMessageElement.classList.remove('hidden');
+      errorMessageElement.classList.remove(CLASS_NAMES.hiddenErrorMessage);
       errorMessageElement.innerHTML = !inputElement.value
-        ? this.errors[field].emptyField
-        : this.errors[field].general;
-      inputElement.classList.add('input_invalid');
+        ? this.inputs[field].errors.emptyField
+        : this.inputs[field].errors.general;
+      inputElement.classList.add(CLASS_NAMES.invalidInput);
     } else {
-      errorMessageElement.classList.add('hidden');
-      inputElement.classList.remove('input_invalid');
+      errorMessageElement.classList.add(CLASS_NAMES.hiddenErrorMessage);
+      inputElement.classList.remove(CLASS_NAMES.invalidInput);
     }
   }
 
   validateForm() {
     let validationFail = false;
 
-    this.inputs.forEach(inputName => {
+    Object.keys(this.inputs).forEach(inputName => {
       if (!this.isInputValid(inputName)) {
         this.showErrorMessageFor(inputName, true);
         validationFail = true;
@@ -66,12 +78,12 @@ class Form {
   }
 
   isInputValid(inputName) {
-    const inputElement = getInputElement(this.name, inputName);
+    const inputElement = document.getElementsByName(inputName)[0];
 
     if (!inputElement.value) return false;
 
-    if (this.errors[inputName].customValidator) {
-      return this.errors[inputName].customValidator();
+    if (this.inputs[inputName].errors.customValidator) {
+      return this.inputs[inputName].errors.customValidator();
     }
 
     return inputElement.validity.valid;
@@ -82,7 +94,7 @@ class Form {
       ? this.showErrorMessageFor(field, true)
       : this.showErrorMessageFor(field, false);
 
-    const dependentFields = this.errors[field].dependentFields;
+    const dependentFields = this.inputs[field].errors.dependentFields;
     if (dependentFields) {
       dependentFields.forEach(dependentField => {
         !this.isInputValid(dependentField)

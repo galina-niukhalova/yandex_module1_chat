@@ -1,8 +1,6 @@
-import { getInputElement } from 'utils/dom';
-
-function isPasswordValid(FORM_NAME) {
-  const password = getInputElement(FORM_NAME, 'password');
-  const repeatPassword = getInputElement(FORM_NAME, 'repeat-password');
+function isPasswordValid() {
+  const password = document.getElementsByName('password')[0];
+  const repeatPassword = document.getElementsByName('repeat-password')[0];
 
   return password.value === repeatPassword.value;
 }

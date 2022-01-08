@@ -1,23 +1,43 @@
-const FORM_NAME = 'login-form';
-const FORM_ID = 'login';
-const FORM_INPUTS = [
-  'login',
-  'password'
-];
+const FORM = {
+  name: 'login-form',
+  id: 'login',
+  title: "Вход"
+};
 
-const ERRORS = {
+const SUBMIT_BTN = {
+  title: "Войти"
+};
+
+const INPUTS = {
   login: {
-    general: 'Неверный логин',
-    emptyField: 'Укажите пожалуйста логин'
+    id: 'login-form_login-input',
+    type: 'text',
+    label: 'Логин',
+    errors: {
+      fieldId: 'login-form_login-error',
+      general: 'Неверный логин',
+      emptyField: 'Укажите пожалуйста логин'
+    }
   },
   password: {
-    emptyField: 'Задайте пожалуйста пароль',
+    id: "login-form_password-input",
+    type: "password",
+    label: "Пароль",
+    errors: {
+      fieldId: "login-form_password-error",
+      emptyField: 'Задайте пожалуйста пароль',
+    }
   }
 };
 
+const NO_ACCOUNT_LINK = {
+  url: '/signup',
+  title: "Нет аккаунта?"
+};
+
 export {
-  FORM_NAME,
-  FORM_ID,
-  FORM_INPUTS,
-  ERRORS
+  FORM,
+  INPUTS,
+  SUBMIT_BTN,
+  NO_ACCOUNT_LINK
 };

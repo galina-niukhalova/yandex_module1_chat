@@ -1,34 +1,4 @@
-@import '~style/colors.scss';
-
 .signup-form {
   padding: 32px 16px;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-
-  &_title {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 20px;
-    margin-bottom: 56px;
-  }
-
-  &_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 280px;
-  }
-
-  &_input {
-    width: 100%; 
-  }
-
-  &_submit-button {
-    width: 100%;
-    margin-bottom: 14px;
-  }
 }

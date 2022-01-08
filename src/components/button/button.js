@@ -7,6 +7,7 @@ Handlebars.registerHelper("button", function (options) {
   if (!hash) return;
 
   const { type, className, title } = hash;
+
   const html = buttonTemplate({
     type: Handlebars.escapeExpression(type || 'button'),
     title: Handlebars.escapeExpression(title),
