@@ -1,6 +1,7 @@
 import buttonTemplate from './button.hbs';
 import Handlebars from 'handlebars/dist/handlebars.runtime';
 import './button.scss';
+import classnames from 'utils/classNames';
 
 const BUTTON_VARIANTS = {
   CLASSIC: 'classic',
@@ -19,24 +20,14 @@ Handlebars.registerHelper('button', function (options) {
     variant = BUTTON_VARIANTS.CLASSIC
   } = hash;
 
-  function getButtonClassName() {
-    let btnClassName = [className];
-
-    switch (variant) {
-      case BUTTON_VARIANTS.LINK:
-        btnClassName.push('button_link');
-        break;
-      default: btnClassName.push('button');
-        break;
-    }
-
-    return btnClassName.join(' ');
-  }
-
   const html = buttonTemplate({
     type: Handlebars.escapeExpression(type || 'button'),
     title: Handlebars.escapeExpression(title),
-    className: getButtonClassName(),
+    className: classnames({
+      [className]: !!className,
+      'button_link': variant === BUTTON_VARIANTS.LINK,
+      button: variant === BUTTON_VARIANTS.CLASSIC
+    }),
     id: Handlebars.escapeExpression(id),
   });
 

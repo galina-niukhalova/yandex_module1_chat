@@ -49,53 +49,6 @@
   }
 }
 
-.user-info {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: 60px auto 0 auto;
-
-  @media only screen and (max-width: 1024px) {
-    width: 100%;
-  }
-
-  &__row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 12px 0 4px 0;
-    border-bottom: 1px solid $color-light-grey;
-  }
-
-  &__label {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 13px;
-  }
-
-  &__input {
-    border: none;
-    outline: none;
-    width: 200px;
-    color: $color-grey;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 13px;
-    text-align: right;
-
-    &_readonly {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-  } 
-}
-
-.user-profile-form {
-  width: 100%;
-}
-
 .profile {
   padding: 60px 40px;
   display: flex;
@@ -112,25 +65,27 @@
     display: block;
    }  
 
-   &__actions-buttons_hidden {
-    display: none;
-   }
+  &__actions-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 60px auto 0 auto;
 
-   &__submit-button-wrap {
-     margin: 60px auto 0 auto;
-     width: 280px;
-
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 1024px) {
       width: 100%;
     }
 
-     &_hidden {
-       display: none;
-     }
-   }
+    &_hidden {
+      display: none;
+    }
+  }
 
-   &__submit-btn {
-    width: 100%;
-   }
+  &__actions-button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 0 4px 0;
+    border-bottom: 1px solid $color-light-grey;
+  }
 }
 
