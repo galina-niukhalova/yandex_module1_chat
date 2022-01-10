@@ -1,9 +1,22 @@
 @import '~style/colors.scss';
 
-a {
+.link {
   text-decoration: none;
-  font-weight: 500;
-  font-size: 11px;
-  line-height: 11px;
   color: $color-blue;
+
+  &_danger {
+    color: $color-red;  
+  }
+
+  &_small {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 11px;
+  }
+
+  &_medium {
+    font-size: 13px;
+    line-height: 13px;
+    font-weight: 500;
+  }
 }

@@ -1,11 +1,11 @@
 const FORM = {
   name: 'login-form',
   id: 'login',
-  title: "Вход"
+  title: 'Вход'
 };
 
 const SUBMIT_BTN = {
-  title: "Войти"
+  title: 'Войти'
 };
 
 const INPUTS = {
@@ -20,11 +20,11 @@ const INPUTS = {
     }
   },
   password: {
-    id: "login-form_password-input",
-    type: "password",
-    label: "Пароль",
+    id: 'login-form_password-input',
+    type: 'password',
+    label: 'Пароль',
     errors: {
-      fieldId: "login-form_password-error",
+      fieldId: 'login-form_password-error',
       emptyField: 'Задайте пожалуйста пароль',
     }
   }
@@ -32,7 +32,7 @@ const INPUTS = {
 
 const NO_ACCOUNT_LINK = {
   url: '/signup',
-  title: "Нет аккаунта?"
+  title: 'Нет аккаунта?'
 };
 
 export {

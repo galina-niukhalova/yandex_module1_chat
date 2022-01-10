@@ -1,0 +1,13 @@
+<form class='user-profile-form'>
+  <ul class='user-info'>
+    {{#each userInfo}}
+      <li class='user-info__row'>
+        <label class='user-info__label'>{{label}}</label>
+        <input class='user-info__input' value={{value}} readonly></input>
+      </li>
+    {{/each}}
+  </ul>
+  <div class='profile__submit-button-wrap profile__submit-button-wrap_hidden'>
+    {{ button id='profile__save-user-info-button' title=saveUserInfo.title className='profile__submit-btn' type='submit' }}
+  </div>
+</form>

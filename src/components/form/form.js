@@ -4,9 +4,9 @@ import {
 import './form.scss';
 import { CLASS_NAMES } from './const';
 import formTemplate from './form.hbs';
-import Handlebars from "handlebars/dist/handlebars.runtime";
+import Handlebars from 'handlebars/dist/handlebars.runtime';
 
-Handlebars.registerHelper("form", function (options) {
+Handlebars.registerHelper('form', function (options) {
   const { hash } = options || {};
   if (!hash) return;
 

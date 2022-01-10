@@ -1,10 +1,41 @@
-<div class="profile">
-  <label for="profile__avatar-file-upload" class="profile__avatar-label"></label>
-  <input type="file" alt="Выберите аватарку" id="profile__avatar-file-upload" class="profile__avatar-file-upload" accept="image/*">
-  {{#if avatar.imageUrl }}
-    <img class="profile__avatar-image" src={{avatar.imageUrl}} />
-  {{else}}
-    <img class="profile__avatar-image profile__avatar-image_hidden" src="" />
-  {{/if}}
-  <h3 class="profile__user-name">{{userName}}</h3>
+<div class='page-wrap profile'>
+  <div class='avatar'>
+    <label for='avatar__file-upload' class='avatar__label'></label>
+    <input type='file' alt='Выберите аватарку' id='avatar__file-upload' class='avatar__file-upload' accept='image/*'>
+    <div class='avatar__image-wrap'>
+      {{#if avatar.imageUrl }}
+        <img class='avatar__image' src={{avatar.imageUrl}} />
+      {{else}}
+        <img class='avatar__image avatar__image-placeholder' src={{avatar.placeholder}} />
+      {{/if}}
+    </div>
+  </div>
+
+  <h3 class='profile__user-name'>{{userName}}</h3>
+
+  <form class='user-profile-form'>
+    <ul class='user-info'>
+      {{#each userInfo}}
+        <li class='user-info__row'>
+          <label class='user-info__label'>{{label}}</label>
+          <input class='user-info__input' value={{value}} readonly></input>
+        </li>
+      {{/each}}
+    </ul>
+    <div class='profile__submit-button-wrap profile__submit-button-wrap_hidden'>
+      {{ button id='profile__save-user-info-button' title=saveUserInfo.title className='profile__submit-btn' type='submit' }}
+    </div>
+  </form>
+
+  <ul class='user-info profile__actions-buttons'>
+    <li class='user-info__row'>
+      {{ button id='change-user-info-button' variant="link" title='Изменить данные' }}
+    </li>
+    <li class='user-info__row'>
+      {{ button id='change-password-button' variant="link" title='Изменить пароль' }}
+    </li>
+    <li class='user-info__row'>
+      {{ link title='Выйти' url='/login' danger=true size="medium" }}
+    </li>
+  </ul>
 </div>
